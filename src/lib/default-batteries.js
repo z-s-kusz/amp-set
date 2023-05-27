@@ -1,0 +1,72 @@
+export const defaultBatteries = [
+	{
+		cellCount: 2,
+		manufacturer: 'RDQ',
+		mAh: 450,
+		cRating: 70,
+		totalVoltage: 7.4,
+		WH: 3.33,
+		hv: false,
+		connector: 'XT30'
+	},
+	{
+		cellCount: 2,
+		manufacturer: 'coddar',
+		mAh: 350,
+		cRating: 90,
+		totalVoltage: 7.6,
+		WH: 2.66,
+		hv: true,
+		connector: 'XT30'
+	},
+	{
+		cellCount: 2,
+		manufacturer: 'Tattu',
+		mAh: 450,
+		cRating: 95,
+		totalVoltage: 7.6,
+		WH: 3.42,
+		hv: true,
+		connector: 'XT30'
+	},
+	{
+		cellCount: 2,
+		manufacturer: 'BetaFPV',
+		mAh: 450,
+		cRating: 45,
+		totalVoltage: 7.4,
+		WH: 3.33,
+		hv: false,
+		connector: 'XT30'
+	},
+	{
+		cellCount: 4,
+		manufacturer: 'Rotor Riot',
+		mAh: 1500,
+		cRating: 100,
+		totalVoltage: 14.8,
+		WH: 22.2,
+		hv: false,
+		connector: 'XT60'
+	},
+	{
+		cellCount: 1,
+		manufacturer: 'RDQ',
+		mAh: 525,
+		cRating: 80,
+		totalVoltage: 3.8,
+		WH: 1.995,
+		hv: true,
+		connector: 'PH2.0'
+	},
+	{
+		cellCount: 1,
+		manufacturer: 'Happymodel',
+		mAh: 300,
+		cRating: 30,
+		totalVoltage: 3.8,
+		WH: 1.14,
+		hv: true,
+		connector: 'PH2.0'
+	}
+];
