@@ -16,7 +16,7 @@
         count: 0,
     };
     const { cellCount, cRating, totalVoltage, WH, manufacturer, mAh, connector, hv } = battery;
-    const title = hv ? `${mAh}mAh HV - ${manufacturer}` : `${mah}mAh - ${manufacturer}`;
+    const title = hv ? `${mAh}mAh HV - ${manufacturer}` : `${mAh}mAh - ${manufacturer}`;
 
     export let totalBatteryCount = 0;
     $: disableAdd = totalBatteryCount >= 6;
