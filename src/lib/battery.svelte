@@ -16,6 +16,7 @@
         count: 0,
     };
     const { cellCount, cRating, totalVoltage, WH, manufacturer, mAh, connector, hv } = battery;
+    const title = hv ? `${mAh}mAh HV - ${manufacturer}` : `${mah}mAh - ${manufacturer}`;
 
     export let totalBatteryCount = 0;
     $: disableAdd = totalBatteryCount >= 6;
@@ -34,16 +35,12 @@
     };
 </script>
 
-<div class="border-2 border-blue-400 rounded-md max-w-md m-2 p-8 flex flex-row justify-between">
+<div class="border-2 border-blue-400 rounded-md max-w-lg m-2 p-8 flex flex-row justify-between">
     <div>
-        <h1 class={`card-title ${chargeDisplayClass}`}>
-            {mAh}mAh
-            {#if hv}HV{/if}
-            - {manufacturer}
-        </h1>
+        <h1 class={`card-title ${chargeDisplayClass}`}>{title}</h1>
+        <span>{totalVoltage}V</span>
         <span>{cellCount}S</span>
         <span>{cRating}C</span>
-        <span>{totalVoltage}V</span>
         <span>{WH}WH</span>
         <br />
         <p>{connector} connector</p>

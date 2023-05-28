@@ -33,19 +33,22 @@
 </script>
 
 <h1 class="hero text-2xl p-8">{cellCount} batteries.</h1>
-{#if batteries.length}
-    {#each selectedBatteries as battery (battery.id)}
-        <Battery battery={battery} on:addBattery={addBattery} on:removeBattery={removeBattery} totalBatteryCount={totalBatteryCount} />
-    {/each}
-{:else}
-    <h1>You don't have any {cellCount} batteries in your list! Click here to add some.</h1>
-{/if}
+
+<section class="flex flex-col">
+    {#if batteries.length}
+        {#each selectedBatteries as battery (battery.id)}
+            <Battery battery={battery} on:addBattery={addBattery} on:removeBattery={removeBattery} totalBatteryCount={totalBatteryCount} />
+        {/each}
+    {:else}
+        <h1>You don't have any {cellCount} batteries in your list! Click here to add some.</h1>
+    {/if}
+</section>
 
 <section class="p-10">
     {#if totalBatteryCount > 0}
         <h1>{totalBatteryCount} Batteries</h1>
-        <p>1amp charge: {oneAmpCharge / 1000}</p>
-        <p>2amp charge: {twoAmpCharge / 1000}</p>
+        <p>1C charge: {oneAmpCharge / 1000}amps</p>
+        <p>2C charge: {twoAmpCharge / 1000}amps</p>
     {:else}
         <p>Add batteries to get amps to set for charging.</p>
     {/if}
