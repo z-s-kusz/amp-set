@@ -1,5 +1,6 @@
 export const defaultBatteries = [
 	{
+		id: 0,
 		cellCount: 2,
 		manufacturer: 'RDQ',
 		mAh: 450,
@@ -10,6 +11,7 @@ export const defaultBatteries = [
 		connector: 'XT30'
 	},
 	{
+		id: 1,
 		cellCount: 2,
 		manufacturer: 'coddar',
 		mAh: 350,
@@ -20,6 +22,7 @@ export const defaultBatteries = [
 		connector: 'XT30'
 	},
 	{
+		id: 2,
 		cellCount: 2,
 		manufacturer: 'Tattu',
 		mAh: 450,
@@ -30,6 +33,7 @@ export const defaultBatteries = [
 		connector: 'XT30'
 	},
 	{
+		id: 3,
 		cellCount: 2,
 		manufacturer: 'BetaFPV',
 		mAh: 450,
@@ -40,6 +44,7 @@ export const defaultBatteries = [
 		connector: 'XT30'
 	},
 	{
+		id: 4,
 		cellCount: 4,
 		manufacturer: 'Rotor Riot',
 		mAh: 1500,
@@ -50,6 +55,7 @@ export const defaultBatteries = [
 		connector: 'XT60'
 	},
 	{
+		id: 5,
 		cellCount: 1,
 		manufacturer: 'RDQ',
 		mAh: 525,
@@ -60,6 +66,7 @@ export const defaultBatteries = [
 		connector: 'PH2.0'
 	},
 	{
+		id: 6,
 		cellCount: 1,
 		manufacturer: 'Happymodel',
 		mAh: 300,
