@@ -75,5 +75,38 @@ export const defaultBatteries = [
 		WH: 1.14,
 		hv: true,
 		connector: 'PH2.0'
-	}
+	},
+	{
+		id: 7,
+		cellCount: 4,
+		manufacturer: 'Tattu',
+		mAh: 650,
+		cRating: 75,
+		totalVoltage: 14.8,
+		WH: 9.62,
+		hv: false,
+		connector: 'XT30'
+	},
+	{
+		id: 8,
+		cellCount: 4,
+		manufacturer: 'GNB',
+		mAh: 850,
+		cRating: 80,
+		totalVoltage: 14.8,
+		WH: 12.58,
+		hv: false,
+		connector: 'XT30'
+	},
+	{
+		id: 9,
+		cellCount: 4,
+		manufacturer: 'Lumenier',
+		mAh: 850,
+		cRating: 45,
+		totalVoltage: 14.8,
+		WH: 12.58,
+		hv: false,
+		connector: 'XT30'
+	},
 ];
