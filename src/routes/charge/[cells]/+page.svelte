@@ -30,22 +30,42 @@
         battery.count -= 1;
         selectedBatteries = selectedBatteries; // is there a bettery way to trigger the set?
     };
+
+    const clearAll = (event) => {
+        selectedBatteries = selectedBatteries.map((battery) => {
+            battery.count = 0;
+            return battery;
+        });
+    };
 </script>
 
-<h1 class="hero text-2xl p-8">{cellCount} batteries.</h1>
+<h1 class="hero text-2xl p-8 underline">{cellCount} Batteries</h1>
 
-<section class="flex flex-col">
+{#if cellCount === '1S'}
+    <p class="p-10">
+        (For Zach)
+        <em>
+            Why are you looking for parallel charge info, you have a SERIES charger.
+            DO NOT charge unlike batteries and ONLY charge them at a single batteries 2C level!
+        </em>
+    </p>
+{/if}
+
+<section>
     {#if batteries.length}
         {#each selectedBatteries as battery (battery.id)}
             <Battery battery={battery} on:addBattery={addBattery} on:removeBattery={removeBattery} totalBatteryCount={totalBatteryCount} />
         {/each}
     {:else}
-        <h1>You don't have any {cellCount} batteries in your list! Click here to add some.</h1>
+        <h1>You don't have any {cellCount} batteries in your list!</h1>
     {/if}
 </section>
 
-<section class="p-10">
+<section class="p-10 mx-auto max-w-lg">
     {#if totalBatteryCount > 0}
+        <button type="button" class="btn btn-secondary btn-sm mb-2" on:click={clearAll}>
+            Clear All Selections
+        </button>
         <h1>{totalBatteryCount} Batteries</h1>
         <p>1C charge: {oneAmpCharge / 1000}amps</p>
         <p>2C charge: {twoAmpCharge / 1000}amps</p>

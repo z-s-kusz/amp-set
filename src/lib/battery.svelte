@@ -35,7 +35,7 @@
     };
 </script>
 
-<div class="border-2 border-blue-400 rounded-md max-w-lg m-2 p-8 flex flex-row justify-between">
+<div class="border-2 border-blue-400 rounded-md max-w-lg m-2 p-8 flex flex-row justify-between mx-auto">
     <div>
         <h1 class={`card-title ${chargeDisplayClass}`}>{title}</h1>
         <span>{totalVoltage}V</span>
