@@ -8,10 +8,8 @@
 </header>
 <section class="flex flex-col items-center">
     {#each chargeList as charge (charge)}
-    <a href={`/charge/${charge}`}>
-        <button class="btn btn-primary m-2">
-            &#9889; {charge} Batteries &#9889;
-        </button>
-    </a>
+        <a href={`/charge/${charge}`} class="btn btn-primary m-2">
+             &#9889; {charge} Batteries &#9889;
+        </a>
     {/each}
 </section>

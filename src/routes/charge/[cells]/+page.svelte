@@ -4,31 +4,34 @@
     const { cells: cellCount } = $page.params;
 
     /** @type {import('./$types').PageData} */
-    export let data;
-    const batteries = data.batteries; // todo also add the ones user has saved
-
-    let selectedBatteries = batteries.map((battery) => {
+    let { data } = $props();
+    const batteries = data.batteries;
+    const defaultSelectedBatteries = batteries.map((battery) => {
         return { ...battery, count: 0 };
     });
-    $: totalBatteryCount = selectedBatteries.reduce((acc, current) => {
-        return acc + current.count;
-    }, 0);
-    $: oneAmpCharge = selectedBatteries.reduce((acc, current) => {
-        const addedAmps = current.mAh * current.count;
-        return acc + addedAmps;
-    }, 0);
-    $: twoAmpCharge = oneAmpCharge * 2;
+    let selectedBatteries = $state(defaultSelectedBatteries)
+
+    let totalBatteryCount = $derived(
+        selectedBatteries.reduce((acc, current) => {
+            return acc + current.count;
+        }, 0)
+    );
+    let oneAmpCharge = $derived(
+        selectedBatteries.reduce((acc, current) => {
+            const addedAmps = current.mAh * current.count;
+            return acc + addedAmps;
+        }, 0)
+    );
+    let twoAmpCharge = $derived(oneAmpCharge * 2);
 
     const addBattery = (event) => {
         const battery = selectedBatteries.find(battery => battery.id === event.detail.id);
         battery.count += 1;
-        selectedBatteries = selectedBatteries; // is there a bettery way to trigger the set?
     };
 
     const removeBattery = (event) => {
         const battery = selectedBatteries.find(battery => battery.id === event.detail.id);
         battery.count -= 1;
-        selectedBatteries = selectedBatteries; // is there a bettery way to trigger the set?
     };
 
     const clearAll = (event) => {
@@ -51,7 +54,7 @@
     </p>
 {/if}
 
-<section>
+<section class="p-10 mx-auto max-w-lg">
     {#if batteries.length}
         {#each selectedBatteries as battery (battery.id)}
             <Battery battery={battery} on:addBattery={addBattery} on:removeBattery={removeBattery} totalBatteryCount={totalBatteryCount} />
@@ -63,7 +66,7 @@
 
 <section class="p-10 mx-auto max-w-lg">
     {#if totalBatteryCount > 0}
-        <button type="button" class="btn btn-secondary btn-sm mb-2" on:click={clearAll}>
+        <button type="button" class="btn btn-secondary btn-sm mb-2" onclick={clearAll}>
             Clear All Selections
         </button>
         <h1>{totalBatteryCount} Batteries</h1>
