@@ -36,3 +36,11 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+### Deploying to Netlify with Svelte 5 preview
+
+1. for svelete 5 prior to official release and other dependencies catching up: use `npm run build --legacy-peer-deps` as the build command -- this might not actually be needed but I'm leaving it for now.
+
+2. set an env variable (only needed on netlify not locally) `NPM_FLAGS` with a value of `--legacy-peer-deps`
+
+TODO: remove the flags when the official release is out and all other packages support svelte 5 and are upgraded.
