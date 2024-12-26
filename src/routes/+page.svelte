@@ -1,5 +1,5 @@
 <script>
-    const chargeList = ['1S', '2S', '3S', '4S', '5S', '6S'];
+    const chargeList = $state(['1S', '2S', '3S', '4S', '5S', '6S']);
 </script>
 
 <header class="card text-center">
