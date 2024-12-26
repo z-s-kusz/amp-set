@@ -77,6 +77,28 @@ export const defaultBatteries = [
 		connector: 'PH2.0'
 	},
 	{
+		id: 61,
+		cellCount: 1,
+		manufacturer: 'BetaFPV',
+		mAh: 550,
+		cRating: 40,
+		totalVoltage: 3.8,
+		WH: 2.09,
+		hv: true,
+		connector: 'BT2.0'
+	},
+	{
+		id: 62,
+		cellCount: 1,
+		manufacturer: 'BetaFPV',
+		mAh: 450,
+		cRating: 30,
+		totalVoltage: 3.8,
+		WH: 1.71,
+		hv: true,
+		connector: 'BT2.0'
+	},
+	{
 		id: 7,
 		cellCount: 4,
 		manufacturer: 'Tattu',
