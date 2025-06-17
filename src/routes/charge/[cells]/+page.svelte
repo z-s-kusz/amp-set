@@ -23,6 +23,17 @@
         }, 0)
     );
     let twoAmpCharge = $derived(oneAmpCharge * 2);
+    let highVoltageMixWarning = $derived.by(() => {
+        let includesHV = false;
+        let includesStandard = false;
+        selectedBatteries.forEach((battery) => {
+            if (battery.count > 0) {
+                if (battery.hv) includesHV = true;
+                else includesStandard = true;
+            }
+        });
+        return includesHV && includesStandard;
+    });
 
     const addBattery = (event) => {
         const battery = selectedBatteries.find(battery => battery.id === event.detail.id);
@@ -48,8 +59,8 @@
     <p class="p-10">
         (For Zach)
         <em>
-            Why are you looking for parallel charge info, you have a SERIES charger.
-            DO NOT charge unlike batteries and ONLY charge them at a single batteries 2C level!
+            Why are you looking for parallel charge info, you have a SERIES charger for 1S batteries.
+            For 1S DO NOT charge unlike batteries and ONLY charge them at a single batteries 2C level!
         </em>
     </p>
 {/if}
@@ -72,6 +83,9 @@
         <h1>{totalBatteryCount} Batteries</h1>
         <p>1C charge: {oneAmpCharge / 1000}amps</p>
         <p>2C charge: {twoAmpCharge / 1000}amps</p>
+        {#if highVoltageMixWarning}
+            <p class="text-warning">HV + lipo -  ONLY charge to standard lipo max</p>
+        {/if}
     {:else}
         <p>Add batteries to get amps to set for charging.</p>
     {/if}
